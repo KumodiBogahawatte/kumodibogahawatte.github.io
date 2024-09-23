@@ -130,7 +130,7 @@ img {
     width: 80%;
     height: 100%;
     padding: 2rem;
-    background-color: var(--second-color);
+    background-color: #ffe5d6;
     transition: 0.5s;
   }
 }
@@ -139,7 +139,7 @@ img {
 }
 .nav__link {
   position: relative;
-  color: #fff;
+  color: black;
 }
 .nav__link:hover {
   position: relative;
@@ -249,23 +249,27 @@ img {
   width: 200px;
   border-radius: 0.5rem;
 }
+.about__text {
+  text-align: justify;
+  /* margin-bottom: 1em; Adjust as needed */
+}
 
 /* ===== EDUCATION =====*/
 .education__item {
   display: flex; /* Use flexbox for horizontal alignment */
   align-items: center; /* Center items vertically */
   background-color: #ffffff;
-  border: 1px solid #f89820;
+  border: 1px solid #ffffff80;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   margin: 20px 0; /* Vertical margin for spacing */
   padding: 20px;
   width: 100%; /* Full width */
-  max-width: 1500px; /* Optional: limit max width for better readability */
+  max-width: 600px; /* Adjust max-width to allow side-by-side display */
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.education__item:hover{
+.education__item:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
@@ -278,6 +282,7 @@ img {
 .education__details {
   flex-grow: 1; /* Allow details to take the remaining space */
   text-align: left; /* Align text to the left */
+
 }
 
 .education__degree {
@@ -293,18 +298,73 @@ img {
   color: #555;
 }
 
-.education__duration, 
+.education__duration,
 .education__gpa {
   font-size: 0.9em;
   color: #777;
 }
+
 .education__status {
   font-size: 0.9em;
   color: #555; /* Adjust color as needed */
   margin: 5px 0; /* Margin for spacing */
 }
 
+/* Media Queries for Responsiveness */
 
+/* For small screens: stack content vertically */
+@media screen and (max-width: 768px) {
+  .education__item {
+    flex-direction: column; /* Stack content vertically */
+    text-align: center; /* Center content for better presentation */
+  }
+
+  .education__item img {
+    margin-right: 0; /* Remove horizontal space */
+    margin-bottom: 15px; /* Add spacing below the image */
+    max-width: 80px; /* Resize the image for smaller screens */
+  }
+
+  .education__degree {
+    font-size: 1.1em; /* Slightly smaller text size */
+  }
+
+  .education__institution, 
+  .education__duration, 
+  .education__gpa, 
+  .education__status {
+    font-size: 0.9em; /* Reduce font size for better readability */
+  }
+}
+
+/* For extra-small screens: adjust padding and spacing */
+@media screen and (max-width: 480px) {
+  .education__item {
+    padding: 15px; /* Reduce padding */
+  }
+
+  .education__degree {
+    font-size: 1em; /* Adjust font size for smaller screens */
+  }
+
+  .education__institution, 
+  .education__duration, 
+  .education__gpa, 
+  .education__status {
+    font-size: 0.85em; /* Further reduce font size */
+  }
+
+  .education__item img {
+    max-width: 60px; /* Make the image smaller for extra-small screens */
+  }
+}
+
+/* For large screens: no changes, retain full layout */
+@media screen and (min-width: 992px) {
+  .education__item {
+    max-width: 1200px; /* Restrict the max width for large screens */
+  }
+}
 
 /* ===== SKILLS =====*/
 /* General Styles
@@ -325,14 +385,17 @@ body {
   row-gap: 2rem; /* Space between rows */
 }
 
-.skills__column {
-  margin-top: 0px;
-  flex: 1 1 45%; /* Adjust the column width */
-  min-width: 300px; /* Ensure minimum width for smaller screens */
+.skills__subtitle {
+  font-size: 20px;
+  margin: 0; /* Remove default margin */
+  text-align: left; /* Left-align for better readability */
+  padding: 10px 15px; /* Add some padding for spacing */
+  /* Optional: you can set a specific color */
 }
 
-.skills__subtitle {
-  margin-bottom: var(--mb-2);
+.skills__column {
+  flex: 1; /* Allow each column to take equal space */
+  margin: 15px; /* Margin for spacing between columns */
 }
 
 .skills__text {
@@ -375,7 +438,7 @@ body {
   z-index: var(--z-back);
 }
 
-/* Technical Skills */
+/* Language Skills */
 .skills__html {
   width: 95%;
   background-color: #c447b3;
@@ -443,57 +506,75 @@ body {
   margin-right: var(--mb-2); /* Space between the image and text */
 }
 
-/* Soft Skills */
-.skills__problem-solving {
-  width: 90%;
-  background-color: #ffa500; /* Example color */
-}
-
-.skills__team-collaboration {
-  width: 85%;
-  background-color: #4682b4; /* Example color */
-}
-
-.skills__time-management {
-  width: 80%;
-  background-color: #3cb371; /* Example color */
-}
-
-.skills__adaptability {
-  width: 85%;
-  background-color: #ff4500; /* Example color */
-}
-
-.skills__critical-thinking {
-  width: 90%;
-  background-color: #ff1493; /* Example color */
-}
-
-.skills__emotional-intelligence {
-  width: 80%;
-  background-color: #1e90ff; /* Example color */
-}
-
+/* Technical Skills */
+/* Bar styles for skill proficiency levels */
+.skills__problem-solving,
+.skills__team-collaboration,
+.skills__time-management,
+.skills__adaptability,
+.skills__critical-thinking,
+.skills__emotional-intelligence,
 .skills__communication {
-  width: 85%;
-  background-color: #20b2aa; /* Example color */
+  height: 8px;
+  border-radius: 4px;
+  margin-top: 15px;
 }
+
 
 .skills-header {
   font-size: 2.5rem;
   margin-bottom: 30px;
   color: #333;
+  text-align: center; /* Center the header for better visual balance */
 }
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Two columns */
+  grid-template-columns: repeat(2, 1fr); /* Two columns for larger screens */
   gap: 20px;
+  padding: 0 20px; /* Add padding for better spacing on small screens */
+}
+
+/* Responsive for skill card layout */
+@media screen and (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: 1fr; /* Switch to single column layout on smaller screens */
+  }
+
+  .skill-card {
+    padding: 20px; /* Reduce padding for smaller screens */
+  }
+
+  .skill-title {
+    font-size: 1.5rem; /* Slightly reduce font size */
+  }
+
+  .skill-icon {
+    font-size: 40px; /* Reduce icon size */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .skills-header {
+    font-size: 2rem; /* Further reduce the header font size */
+  }
+
+  .skill-card {
+    padding: 15px; /* Further reduce padding */
+  }
+
+  .skill-title {
+    font-size: 1.4rem; /* Reduce the title font size for smaller screens */
+  }
+
+  .skill-icon {
+    font-size: 35px; /* Adjust icon size */
+  }
 }
 
 .skill-card {
-  background:white;
-  border: 1px solid #f89820;
+  background: white;
+  border: 1px solid #ffffff57;
   border-radius: 12px;
   padding: 25px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -504,9 +585,11 @@ body {
   transform: translateY(-5px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
-.skill-card img{
+
+.skill-card img {
   width: 50px;
 }
+
 .skill-icon {
   font-size: 50px;
   color: #007bff; /* Change to your preferred color */
@@ -522,6 +605,25 @@ body {
 .skill-description {
   color: #555;
   line-height: 1.6;
+}
+
+/* General media queries for text scaling on extra-small screens */
+@media screen and (max-width: 320px) {
+  .skills-header {
+    font-size: 1.8rem;
+  }
+
+  .skill-title {
+    font-size: 1.3rem;
+  }
+
+  .skill-description {
+    font-size: 0.85rem;
+  }
+
+  .skill-icon {
+    font-size: 30px;
+  }
 }
 
 /* Soft Skills Section */
@@ -541,7 +643,7 @@ body {
   flex-direction: column;
   align-items: center;
   background-color: white;
-  border: 1px solid #f89820;
+  border: 1px solid #ffffff77;
   border-radius: 12px;
   padding: 20px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -669,15 +771,9 @@ body {
   display: inline-block;
 }
 
-
-/* ===== CONTACT =====*/
-/* .contact.section {
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  padding: 60px 0;
-} */
-
+/* ===== CONTACT ===== */
 .section-title {
-  font-size: 36px;
+  font-size: 2.25rem; /* Responsive font size */
   text-align: center;
   margin-bottom: 40px;
   font-weight: bold;
@@ -685,17 +781,20 @@ body {
 }
 
 .contact__container {
-  display: grid;
-  grid-template-columns: 1fr;
-  row-gap: 40px;
+  padding: 20px;
+  display: flex; /* Use flex for responsiveness */
+  flex-direction: column; /* Stack vertically by default */
+  align-items: center; /* Center items */
 }
 
 .contact__info {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 40px;
+  display: grid; /* Use grid layout for the info section */
+  grid-template-columns: repeat(3, 1fr); /* Three columns for larger screens */
+  gap: 40px; /* Space between boxes */
+  width: 100%; /* Full width for the grid */
 }
 
+/* Individual contact boxes */
 .contact__box {
   text-align: center;
   background: #fff;
@@ -703,7 +802,8 @@ body {
   padding: 20px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
-  width: 30%;
+  max-width: 400px; /* Optional: limit width */
+  width: 100%; /* Full width for stacking */
 }
 
 .contact__box:hover {
@@ -711,22 +811,65 @@ body {
 }
 
 .contact__icon {
-  font-size: 40px;
+  font-size: 2.5rem;
   color: #ff6347;
   margin-bottom: 15px;
 }
 
 .contact__title {
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: bold;
   margin-bottom: 10px;
   color: #333;
 }
 
 .contact__text {
-  font-size: 16px;
+  font-size: 1rem;
   color: #777;
 }
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .contact__info {
+      grid-template-columns: 1fr; /* Stack into a single column on smaller screens */
+  }
+
+  .contact__box {
+      margin-bottom: 20px; /* Space between boxes */
+  }
+
+  .contact__icon {
+      font-size: 1.75rem;
+  }
+
+  .contact__title {
+      font-size: 1.125rem;
+  }
+
+  .contact__text {
+      font-size: 0.95rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .section-title {
+      font-size: 1.75rem; /* Smaller title for mobile screens */
+  }
+
+  .contact__icon {
+      font-size: 1.5rem; /* Smaller icon size */
+  }
+
+  .contact__title {
+      font-size: 1.25rem; /* Smaller title size */
+  }
+
+  .contact__text {
+      font-size: 0.9rem; /* Smaller text size */
+  }
+}
+
+
 
 /* .contact__form {
   display: flex;
@@ -836,13 +979,13 @@ body {
     column-gap: 2rem;
     padding-top: 2rem;
   }
-  .contact__form {
+  /* .contact__form {
     width: 360px;
     padding-top: 2rem;
-  }
-  .contact__container {
+  } */
+  /* .contact__container {
     justify-items: center;
-  }
+  } */
 }
 @media screen and (min-width: 768px) {
   body {
