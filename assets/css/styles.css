@@ -781,34 +781,43 @@ body {
 }
 
 .contact__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   padding: 20px;
-  display: flex; /* Use flex for responsiveness */
-  flex-direction: column; /* Stack vertically by default */
-  align-items: center; /* Center items */
 }
 
+
 .contact__info {
-  display: grid; /* Use grid layout for the info section */
-  grid-template-columns: repeat(3, 1fr); /* Three columns for larger screens */
-  gap: 40px; /* Space between boxes */
-  width: 100%; /* Full width for the grid */
+  display: flex;
+  flex-direction: row; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Center items vertically */
+  gap: 40px; /* Add space between contact boxes */
+  text-align: center; /* Center text inside each contact box */
+  width: 100%; 
 }
+
 
 /* Individual contact boxes */
 .contact__box {
-  text-align: center;
+  max-width: 400px; /* Limit the width for uniformity */
+  width: 100%; /* Take full available width */
+  padding: 20px;
+  height: 200px;
   background: #fff;
   border-radius: 10px;
-  padding: 20px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
   transition: transform 0.3s ease;
-  max-width: 400px; /* Optional: limit width */
-  width: 100%; /* Full width for stacking */
 }
 
 .contact__box:hover {
-  transform: translateY(-10px);
+  transform: translateY(-10px); /* Slight lift effect on hover */
 }
+
 
 .contact__icon {
   font-size: 2.5rem;
@@ -832,6 +841,8 @@ body {
 @media screen and (max-width: 768px) {
   .contact__info {
       grid-template-columns: 1fr; /* Stack into a single column on smaller screens */
+      flex-direction: column;
+      gap: 20px;
   }
 
   .contact__box {
